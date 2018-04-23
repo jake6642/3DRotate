@@ -1,5 +1,6 @@
 package Rotate;
 
+import Rotate.Const.MATERIAL;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
@@ -16,22 +17,22 @@ public class FactoryMethod {
 		switch (type) {
 		case Const.BOX:
 			shape = new Box(250, 250, 250);
-			shape.setMaterial(getMaterial(1));
+			shape.setMaterial(getMaterial(MATERIAL.GOLD));
 			break;
 		case Const.CYL:
 			shape = new Cylinder(150, 300, 300);
-			shape.setMaterial(getMaterial(2));
+			shape.setMaterial(getMaterial(MATERIAL.DIAMOND));
 			break;
 		case Const.ETH:
 			shape = new Earth(150);
 			break;
 		case Const.SPH:
 			shape = new Sphere(150);
-			shape.setMaterial(getMaterial(4));
+			shape.setMaterial(getMaterial(MATERIAL.GREEN));
 			break;
 		case Const.TRI:
 			shape = new Prism(150, 300);
-			shape.setMaterial(getMaterial(3));
+			shape.setMaterial(getMaterial(MATERIAL.ORANGE));
 			break;
 		default:
 			shape = new Box(100, 100, 100);
@@ -42,22 +43,25 @@ public class FactoryMethod {
 		shapeBox.getChildren().add(shape);
 	}
 
-	private PhongMaterial getMaterial(int color) {
+	
+	/* This method will return PhongMaterial with the color requested */
+	private PhongMaterial getMaterial(MATERIAL material) {
 		PhongMaterial mat = new PhongMaterial();
-		switch (color) {
-		case 1:
+		
+		switch (material) {
+		case GOLD:
 			mat.setDiffuseColor(Color.DARKGOLDENROD);
 			mat.setSpecularColor(Color.WHITE);
 			break;
-		case 2:
+		case DIAMOND:
 			mat.setDiffuseColor(Color.BLANCHEDALMOND);
 			mat.setSpecularColor(Color.WHITE);
 			break;
-		case 3:
+		case ORANGE:
 			mat.setDiffuseColor(Color.DARKORANGE);
 			mat.setSpecularColor(Color.WHITE);
 			break;
-		case 4:
+		case GREEN:
 			mat.setDiffuseColor(Color.LAWNGREEN);
 			mat.setSpecularColor(Color.BURLYWOOD);
 		}

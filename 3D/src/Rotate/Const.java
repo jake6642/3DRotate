@@ -6,4 +6,11 @@ public class Const {
 	final static String ETH = "Earth";
 	final static String SPH = "Sphere";
 	final static String TRI = "Triangular Prism";
+	
+	enum MATERIAL{
+		GOLD,
+		DIAMOND,
+		ORANGE,
+		GREEN;
+	}
 }

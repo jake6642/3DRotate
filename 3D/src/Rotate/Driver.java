@@ -39,10 +39,11 @@ public class Driver extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 
+		// build the display boxes
 		buildBoxes();
-		Scene scene = new Scene(mainBox, 600, 600);
 
-		/* Set the Stage */
+		/* Set the Scene */
+		Scene scene = new Scene(mainBox, 600, 600);
 		stage.setScene(scene);
 		stage.setMinHeight(scene.getHeight() + 20);
 		stage.setMinWidth(scene.getWidth() + 10);
@@ -50,12 +51,14 @@ public class Driver extends Application {
 		stage.show();
 	}
 
+	/*Method that will build the display elements */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void buildBoxes() {
 		mainBox = new VBox();
 		shapeBox = new VBox();
 		Insets inset = new Insets(5, 10, 5, 10);
 		mainBox.setAlignment(Pos.TOP_CENTER);
+		//background of the main window
 		mainBox.setBackground(
 				new Background(new BackgroundFill(Color.color(.12f, .12f, .12f), CornerRadii.EMPTY, Insets.EMPTY)));
 		shapeBox.setPadding(new Insets(50, 50, 50, 50));
@@ -123,6 +126,8 @@ public class Driver extends Application {
 		FactoryMethod.shape.getTransforms().add(rotateAbout);
 	}
 
+	/* method that resets the slides to 0. This can be called when a 
+	 * new shape is initialized */
 	static void resetSlides() {
 		xSlider.setValue(0);
 		ySlider.setValue(0);
